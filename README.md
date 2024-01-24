@@ -52,7 +52,7 @@ plt.title('Flipped Image')
 
 ## Documentation
 
-For detailed documentation and examples, visit the [TransMag Documentation](https://github.com/Adeyeha/transmag/blob/master/docs/examples/PIPELINE.md).
+For detailed documentation and examples, visit the [TransMag Documentation](.docs\examples\TRANSFORMER.md).
 
 ## Changelog
 
