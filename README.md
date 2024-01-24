@@ -52,7 +52,7 @@ plt.title('Flipped Image')
 
 ## Documentation
 
-For detailed documentation and examples, visit the [TransMag Documentation](.docs\examples\TRANSFORMER.md).
+For detailed documentation and examples, visit the [TransMag Documentation](docs/examples/TRANSFORMER.md).
 
 ## Changelog
 
