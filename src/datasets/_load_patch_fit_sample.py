@@ -17,14 +17,14 @@ def load_fits_data(fits_type="patch", sample_no=1):
     checkoptions(fits_type,["patch","fulldisk"],'fits_type')
     
     # Read AR_PATCH
-    HMI_fits_path = f'solarflarepy/datasets/fit_samples/hmi.sharp_{fits_type}_sample_{sample_no}_TAI.magnetogram.fits'
+    HMI_fits_path = f'src/datasets/fit_samples/hmi.sharp_{fits_type}_sample_{sample_no}_TAI.magnetogram.fits'
     HMI_fits = fits.open(HMI_fits_path, cache=False)
     HMI_fits.verify('fix')
     dataHMI = HMI_fits[1].data
     dataHMI_header = HMI_fits[1].header
 
     # Read Bitmap
-    bitmap_path = f'solarflarepy/datasets/fit_samples/hmi.sharp_{fits_type}_sample_{sample_no}_TAI.bitmap.fits'
+    bitmap_path = f'src/datasets/fit_samples/hmi.sharp_{fits_type}_sample_{sample_no}_TAI.bitmap.fits'
     bitmap_hdul = fits.open(bitmap_path, cache=False)
     bitmap_hdul.verify('fix')
     bitmap_data = bitmap_hdul[0].data

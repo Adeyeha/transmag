@@ -60,6 +60,9 @@ transformed = transformer.transform(dataHMI, scale=255, rgb=True)
 display_magnetogram(magnetogram, bitmap_data, transformed)
 ```
 
+### Sample Output
+![output](https://github.com/Adeyeha/transmag/blob/master/docs/images/transformer_output.png)
+
 ## Transformers
 
 ### 1. `DenoiseTransformer`
