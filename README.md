@@ -52,19 +52,19 @@ plt.title('Flipped Image')
 
 ## Documentation
 
-For detailed documentation and examples, visit the [TransMag Documentation](docs\examples\PIPELINE.md).
+For detailed documentation and examples, visit the [TransMag Documentation](https://github.com/Adeyeha/transmag/blob/master/docs/examples/PIPELINE.md).
 
-<!-- ## Changelog
+## Changelog
 
-See the [Changelog](https://github.com/transmag/transmag/blob/main/CHANGELOG.md) for information about notable changes.
+See the [Changelog](https://github.com/Adeyeha/transmag/blob/master/CHANGELOG.md) for information about notable changes.
 
-## Contributing
+<!-- ## Contributing
 
 We welcome contributions from the community. Refer to the [Contributing Guide](https://github.com/transmag/transmag/blob/main/CONTRIBUTING.md) for more details. -->
 
 ## License
 
-TransMag is distributed under the GNU License. See [GNU General Public License, Version 3](LICENSE.txt)   for details.
+TransMag is distributed under the GNU License. See [GNU General Public License, Version 3](https://github.com/Adeyeha/transmag/blob/master/LICENSE.txt)   for details.
 
 
 ## Citation
@@ -78,8 +78,8 @@ Awards: No. AC1443061 and AC1931555.
 
 ***
 
-This software is distributed using the [GNU General Public License, Version 3](LICENSE.txt)  
-![alt text](docs\images\gplv3-88x31.png)
+This software is distributed using the [GNU General Public License, Version 3](https://github.com/Adeyeha/transmag/blob/master/LICENSE.txt)  
+![alt text](https://github.com/Adeyeha/transmag/blob/master/docs/images/gplv3-88x31.png)
 
 ***
 
