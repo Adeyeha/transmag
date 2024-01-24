@@ -247,7 +247,7 @@ bitmap_cropping_transformer = HistogramEqualizationTransformer()
 
 ## Next Steps
 
-Feel free to explore more transformers within the `transmag` module or integrate them into your magnetogram preprocessing pipeline. For detailed guidance on efficiently organizing and applying these transformers, check out the [PIPELINE.md](./PIPELINE.md) document.
+Feel free to explore more transformers within the `transmag` module or integrate them into your magnetogram preprocessing pipeline. For detailed guidance on efficiently organizing and applying these transformers, check out the [pipeline](./PIPELINE.md) documentation.
 
 
 Happy transforming!

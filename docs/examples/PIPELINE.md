@@ -39,6 +39,6 @@ The pipeline supports optional parameters such as on_error and on_null_output, a
 ### Experimenting with Transformers
 Feel free to experiment with different transformers and their configurations within the pipeline to achieve desired results. You can customize the list of transformers based on your specific use case.
 
-Refer to the documentation [TRANSFORMER.md](./TRANSFORMER.md) for detailed information on each transformer and the pipeline.
+Refer to the [documentation](./TRANSFORMER.md) for detailed information on each transformer and the pipeline.
 
 Happy experimenting with magnetogram transformations!
