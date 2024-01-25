@@ -1,0 +1,16 @@
+include *.rst
+include *.csv
+include *.bitmap.fits
+include *.magnetogram.fits
+include *.fits
+recursive-include doc *
+recursive-include examples *
+recursive-include transmag/datasets *.csv *.csv.gz *.rst *.jpg *.txt *.arff.gz *.json.gz *.fits *.bitmap.fits *.magnetogram.fits
+recursive-include transmag/utils *.csv *.csv.gz *.rst *.jpg *.txt *.arff.gz *.json.gz *.fits *.bitmap.fits *.magnetogram.fits
+include COPYING
+include README.rst
+include pyproject.toml
+include conftest.py
+include Makefile
+include MANIFEST.in
+include .coveragerc

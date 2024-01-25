@@ -4,6 +4,8 @@ Description: Contains helper functions.
 """
 import numpy as np
 from ..utils.exceptions import RGBScaleError
+from pathlib import Path
+
 
 def checktype(X,dtype):
     """
@@ -103,10 +105,10 @@ def to_rgb(input_array):
     """
     checktype(input_array, np.ndarray)
 
-    try:
-        rgb_array = _generate_rgb_array(colormap_file=r'solarflarepy\utils\hmi_mag.csv', input_array=input_array)
-    except Exception as e:
-        # Use default colormap if loading from path fails
-        rgb_array = _generate_rgb_array(colormap_file='https://raw.githubusercontent.com/sunpy/sunpy/main/sunpy/visualization/colormaps/data/hmi_mag.csv', input_array=input_array)
+    colormap_file_path = Path(__file__).parent / 'hmi_mag.csv'
+    if not colormap_file_path.exists():
+        colormap_file_path = 'https://raw.githubusercontent.com/sunpy/sunpy/main/sunpy/visualization/colormaps/data/hmi_mag.csv'
 
+    rgb_array = _generate_rgb_array(colormap_file=str(colormap_file_path), input_array=input_array)
+    
     return rgb_array

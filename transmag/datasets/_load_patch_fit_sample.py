@@ -1,6 +1,7 @@
 from astropy.io import fits
 from ..utils.helper import checkoptions
 import warnings
+from pathlib import Path
 
 def load_fits_data(fits_type="patch", sample_no=1):
     """
@@ -14,19 +15,23 @@ def load_fits_data(fits_type="patch", sample_no=1):
     - tuple: Tuple containing magnetogram data, magnetogram header, and bitmap data.
     """
 
-    checkoptions(fits_type,["patch","fulldisk"],'fits_type')
-    
+    checkoptions(fits_type, ["patch", "fulldisk"], 'fits_type')
+
+    # Get the root directory of the package
+    package_dir = Path(__file__).parent.parent
+
     # Read AR_PATCH
-    HMI_fits_path = f'src/datasets/fit_samples/hmi.sharp_{fits_type}_sample_{sample_no}_TAI.magnetogram.fits'
+    HMI_fits_path = package_dir / f'datasets/fit_samples/hmi.sharp_{fits_type}_sample_{sample_no}_TAI.magnetogram.fits'
     HMI_fits = fits.open(HMI_fits_path, cache=False)
     HMI_fits.verify('fix')
     dataHMI = HMI_fits[1].data
     dataHMI_header = HMI_fits[1].header
 
     # Read Bitmap
-    bitmap_path = f'src/datasets/fit_samples/hmi.sharp_{fits_type}_sample_{sample_no}_TAI.bitmap.fits'
+    bitmap_path = package_dir / f'datasets/fit_samples/hmi.sharp_{fits_type}_sample_{sample_no}_TAI.bitmap.fits'
     bitmap_hdul = fits.open(bitmap_path, cache=False)
     bitmap_hdul.verify('fix')
     bitmap_data = bitmap_hdul[0].data
 
     return dataHMI, dataHMI_header, bitmap_data
+

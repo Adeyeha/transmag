@@ -25,7 +25,8 @@ conda install -c conda-forge transmag
 
 ```python
 
-from transmag import FlipTransformer
+from transmag.transformers import FlipTransformer
+from transmag.datasets import load_fits_data
 import warnings
 warnings.filterwarnings("ignore")
 import matplotlib.pyplot as plt
@@ -37,17 +38,18 @@ transformer = FlipTransformer(direction='vertical')
 magnetogram, magnetogram_header, bitmap  = load_fits_data()
 
 # Transform the magnetogram
-transformed_magnetogram = transformer.transform(magnetogram)
+transformed_magnetogram = transformer.transform(magnetogram,scale=255,rgb=True)
 
 # Display the results
 plt.figure(figsize=(15, 5))
 plt.subplot(1, 2, 1)
-plt.imshow(dataHMI, cmap='gray')
+plt.imshow(magnetogram, cmap='gray')
 plt.title('Original Image')
 
 plt.subplot(1, 2, 2)
-plt.imshow(bitmap_data, cmap='gray')
+plt.imshow(transformed_magnetogram, cmap='gray')
 plt.title('Flipped Image')
+
 ```
 
 ## Documentation
