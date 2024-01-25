@@ -1,8 +1,8 @@
 import unittest
 import numpy as np
-from src.transformers import *
-from src.pipeline import Pipeline
-from src.utils.exceptions import PipelineExecutionError,NoBitmapError,NoHeaderError
+from transmag.transformers import *
+from transmag.pipeline import Pipeline
+from transmag.utils.exceptions import PipelineExecutionError,NoBitmapError,NoHeaderError
 
 class TestPreprocessingPipeline(unittest.TestCase):
 

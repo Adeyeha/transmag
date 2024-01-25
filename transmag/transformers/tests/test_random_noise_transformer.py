@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from src.transformers import RandomNoiseTransformer
+from transmag.transformers import RandomNoiseTransformer
 
 class TestRandomNoiseTransformer(unittest.TestCase):
     def test_random_noise_transformer_default(self):

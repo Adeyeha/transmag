@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from src.transformers import GaussianBlurTransformer
+from transmag.transformers import GaussianBlurTransformer
 
 class TestGaussianBlurTransformer(unittest.TestCase):
     def test_gaussian_blur_transformer_default(self):

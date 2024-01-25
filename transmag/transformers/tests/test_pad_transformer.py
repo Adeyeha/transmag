@@ -1,7 +1,7 @@
 # test_padding_transformer.py
 import unittest
 import numpy as np
-from src.transformers import PadTransformer
+from transmag.transformers import PadTransformer
 
 class TestPadTransformer(unittest.TestCase):
     def test_padding_transformer_default(self):

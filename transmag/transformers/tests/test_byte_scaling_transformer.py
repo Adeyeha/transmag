@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from src.transformers import ByteScalingTransformer
+from transmag.transformers import ByteScalingTransformer
 
 class TestByteScalingTransformer(unittest.TestCase):
     def test_byte_scaling_transformer_default(self):

@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
-from src.transformers import FlipTransformer
-from src.utils.exceptions import InformationLossWarning
+from transmag.transformers import FlipTransformer
+from transmag.utils.exceptions import InformationLossWarning
 
 class TestFlipTransformer(unittest.TestCase):
     def test_flip_transformer_horizontal(self):

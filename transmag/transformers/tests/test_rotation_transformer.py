@@ -2,8 +2,8 @@
 
 import unittest
 import numpy as np
-from src.transformers import RotationTransformer
-from src.utils.exceptions import InformationLossWarning
+from transmag.transformers import RotationTransformer
+from transmag.utils.exceptions import InformationLossWarning
 
 class TestRotationTransformer(unittest.TestCase):
     def test_rotation_transformer_default(self):

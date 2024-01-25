@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from src.transformers import InformativePatchTransformer
+from transmag.transformers import InformativePatchTransformer
 
 class TestInformativePatchTransformer(unittest.TestCase):
     def test_informative_patch_transformer_default(self):

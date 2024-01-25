@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from src.transformers import InvertPolarityTransformer
+from transmag.transformers import InvertPolarityTransformer
 
 class TestInvertPolarityTransformer(unittest.TestCase):
     def test_invert_polarity_transformer_default(self):

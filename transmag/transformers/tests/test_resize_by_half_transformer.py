@@ -2,7 +2,7 @@
 
 import unittest
 import numpy as np
-from src.transformers import ResizeByHalfTransformer
+from transmag.transformers import ResizeByHalfTransformer
 
 class TestResizeByHalfTransformer(unittest.TestCase):
     def test_resize_by_half_transformer(self):

@@ -2,7 +2,7 @@
 
 import unittest
 import numpy as np
-from src.transformers import DenoiseTransformer
+from transmag.transformers import DenoiseTransformer
 
 class TestDenoiseTransformer(unittest.TestCase):
 

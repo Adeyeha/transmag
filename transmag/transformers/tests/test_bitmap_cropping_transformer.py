@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from src.transformers import BitmapCroppingTransformer
+from transmag.transformers import BitmapCroppingTransformer
 
 class TestBitmapCroppingTransformer(unittest.TestCase):
     def test_bitmap_cropping_transformer_error_handling(self):
