@@ -10,7 +10,7 @@ from ._byte_scaling_transformer import ByteScalingTransformer
 
 class DenoiseTransformer:
 
-    def __init__(self, lower_bound=-50, upper_bound=50, maximum_range=256, verbose=False):
+    def __init__(self, lower_bound=-50, upper_bound=50, maximum_range=256, verbose=False, **kwargs):
         """
         Denoise Transformer
 
@@ -23,12 +23,25 @@ class DenoiseTransformer:
         - upper_bound (int): The upper bound of the noise threshold. Default is 50.
         - maximum_range (int, optional): The maximum range for clipping values. Default is 256.
         - verbose (bool, optional): If True, enable verbose logging. Default is False.
+        
+        Basic Example:
+        
+        # Create an instance of the transformer
+        transformer = DenoiseTransformer()
+        # Load a sample magnetogram
+        magnetogram, magnetogram_header, bitmap = load_fits_data()
+        # Transform the magnetogram
+        transformed_magnetogram = transformer.transform(magnetogram, scale=255, rgb=True)
+
         """
         self.lower_bound = lower_bound
         self.upper_bound = upper_bound
         self.maximum_range = maximum_range
         self.verbose = verbose
         self.logger = VerboseLogger(verbose=self.verbose)
+        self.requires_bitmap = False
+        self.orient_changing = False
+        self.kwargs = kwargs
 
     def _denoise(self, active_region_patch, lower_bound, upper_bound, maximum_range):
         """

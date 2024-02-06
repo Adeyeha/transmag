@@ -22,10 +22,22 @@ class GaussianBlurTransformer:
         - sigma (float, optional): The standard deviation of the Gaussian kernel. Default is 10.
         - verbose (bool, optional): If True, enable verbose logging. Default is False.
         - **kwargs: Additional keyword arguments.
+
+        Basic Example:
+        
+        # Create an instance of the transformer
+        transformer = GaussianBlurTransformer()
+        # Load a sample magnetogram
+        magnetogram, magnetogram_header, bitmap = load_fits_data()
+        # Transform the magnetogram
+        transformed_magnetogram = transformer.transform(magnetogram, scale=255, rgb=True)
+
         """
         self.sigma = sigma
         self.verbose = verbose
         self.logger = VerboseLogger(verbose=self.verbose)
+        self.requires_bitmap = False
+        self.orient_changing = False
         self.kwargs = kwargs
 
     def _gaussian_blur(self, magnetogram, sigma):

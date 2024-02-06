@@ -29,6 +29,16 @@ class InformativePatchTransformer:
             - "ignore": return input data and log a warning (default).
             - "raise": Raise an error if a transformer returns None.
         - verbose (bool, optional): If True, enable verbose logging. Default is False.
+
+        Basic Example:
+        
+        # Create an instance of the transformer
+        transformer = InformativePatchTransformer()
+        # Load a sample magnetogram
+        magnetogram, magnetogram_header, bitmap = load_fits_data()
+        # Transform the magnetogram
+        transformed_magnetogram = transformer.transform(magnetogram, scale=255, rgb=True)
+
         """
         self.patch_size = patch_size
         self.stride = stride
@@ -36,6 +46,8 @@ class InformativePatchTransformer:
         self.on_null_output = on_null_output if checkoptions(on_null_output, self.validoptions, "on_null_output") else None
         self.verbose = verbose
         self.logger = VerboseLogger(verbose=self.verbose)
+        self.requires_bitmap = False
+        self.orient_changing = False
         self.kwargs = kwargs
         self.padding = PadTransformer(constant_value=constant_value, output_size=output_size, infer_output_size=infer_output_size)
   

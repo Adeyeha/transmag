@@ -29,12 +29,24 @@ class PadTransformer:
         - constant_value (int, optional): The padding value to use. Default is 0.
         - verbose (bool, optional): If True, enable verbose logging. Default is False.
         - **kwargs: Additional keyword arguments.
+
+        Basic Example:
+        
+        # Create an instance of the transformer
+        transformer = PadTransformer()
+        # Load a sample magnetogram
+        magnetogram, magnetogram_header, bitmap = load_fits_data()
+        # Transform the magnetogram
+        transformed_magnetogram = transformer.transform(magnetogram, scale=255, rgb=True)
+
         """
         self.constant_value = constant_value
         self.output_size = output_size
         self.infer_output_size = infer_output_size
         self.verbose = verbose
         self.logger = VerboseLogger(verbose=self.verbose)
+        self.requires_bitmap = False
+        self.orient_changing = False
         self.kwargs = kwargs
 
     def _padding(self, X, constant_value, output_size):

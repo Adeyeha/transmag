@@ -22,11 +22,23 @@ class HistogramEqualizationTransformer:
         - range (list): Range of intensity values for the histogram. Default is [0, 256].
         - verbose (bool): If True, display verbose output during transformation. Default is False.
         - **kwargs: Additional keyword arguments for future expansion.
+
+        Basic Example:
+        
+        # Create an instance of the transformer
+        transformer = HistogramEqualizationTransformer()
+        # Load a sample magnetogram
+        magnetogram, magnetogram_header, bitmap = load_fits_data()
+        # Transform the magnetogram
+        transformed_magnetogram = transformer.transform(magnetogram, scale=255, rgb=True)
+
         """
         self.bins = bins
         self.range = range
         self.verbose = verbose
         self.logger = VerboseLogger(verbose=self.verbose)
+        self.requires_bitmap = False
+        self.orient_changing = False
         self.kwargs = kwargs
 
     def _histogram_equalization(self, magnetogram, bins, range):

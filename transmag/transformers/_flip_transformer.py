@@ -24,6 +24,16 @@ class FlipTransformer:
         - loss_threshold (float, optional): The threshold for information loss. If the information loss exceeds this threshold, the input array will be returned. Default is 1.0.
         - verbose (bool, optional): If True, enable verbose logging. Default is False.
         - **kwargs: Additional keyword arguments.
+
+        Basic Example:
+        
+        # Create an instance of the transformer
+        transformer = FlipTransformer()
+        # Load a sample magnetogram
+        magnetogram, magnetogram_header, bitmap = load_fits_data()
+        # Transform the magnetogram
+        transformed_magnetogram = transformer.transform(magnetogram, scale=255, rgb=True)
+
         """
 
         self.validoptions = ["horizontal", "vertical"]
@@ -31,6 +41,8 @@ class FlipTransformer:
         self.verbose = verbose
         self.loss_threshold = loss_threshold
         self.logger = VerboseLogger(verbose=self.verbose)
+        self.requires_bitmap = False
+        self.orient_changing = True
         self.kwargs = kwargs
 
     def _flip(self, input, direction):

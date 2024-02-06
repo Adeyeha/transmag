@@ -23,9 +23,21 @@ class BitmapCroppingTransformer:
         Parameters:
         - verbose (bool, optional): If True, enable verbose logging. Default is False.
         - **kwargs: Additional keyword arguments.
+
+        Basic Example:
+        
+        # Create an instance of the transformer
+        transformer = BitmapCroppingTransformer()
+        # Load a sample magnetogram
+        magnetogram, magnetogram_header, bitmap = load_fits_data()
+        # Transform the magnetogram
+        transformed_magnetogram = transformer.transform(magnetogram, bitmap, scale=255, rgb=True)
+        
         """
         self.verbose = verbose
         self.logger = VerboseLogger(verbose=self.verbose)
+        self.requires_bitmap = True
+        self.orient_changing = False
         self.kwargs = kwargs
 
     def _bitmap_cropping(self, AR_patch, bitmap_data):

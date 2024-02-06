@@ -29,14 +29,29 @@ class Pipeline:
             - "ignore": Continue with the next transformer and log a warning (default).
             - "raise": Raise an error if a transformer returns None.
         - verbose (bool, optional): If True, enable verbose logging. Default is None.
+
+        Basic Example:
+        
+        from transmag.pipeline import Pipeline
+
+        # Create a pipeline with multiple transformations
+        pipe = Pipeline([
+        GaussianBlurTransformer(sigma=20),
+        RandomNoiseTransformer(gauss=200),
+        InvertPolarityTransformer(),
+        ])
+
+        # Load a sample magnetogram
+        magnetogram, magnetogram_header, bitmap = load_fits_data()
+
+        # Transform the magnetogram
+        transformed_magnetogram = pipe.transform(magnetogram, scale=255, rgb=True)
         """
         self.steps = steps
-        self.orientChangingTransformers = (RotationTransformer, FlipTransformer)
-        self.bitmapTransformers = (BitmapCroppingTransformer,)
         self.transformerSequence = ((BitmapCroppingTransformer, InformativePatchTransformer),)
 
         # Check if any step requires bitmap (BitmapCroppingTransformer)
-        self.requires_bitmap = any(isinstance(step, self.bitmapTransformers) for step in steps)
+        self.requires_bitmap = any(step.requires_bitmap for step in steps)
         self.verbose = verbose
         self.logger = VerboseLogger(verbose=self.verbose)
         self.validoptions = ["ignore", "raise"]
@@ -173,13 +188,13 @@ class Pipeline:
 
                 try:
                     # Both bitmap and magnetogram are passed for transformers that require bitmap
-                    if any(isinstance(step, transformer) for transformer in self.bitmapTransformers):
+                    if step.requires_bitmap:
                         input_array = step.transform(self.input_array, self.bitmap_data )
                     else:
                         input_array = step.transform(self.input_array)
 
                     # Transform both bitmap and magnetogram when applying orientation changing transformers and requires_bitmap is True
-                    if any(isinstance(step, transformer) for transformer in self.orientChangingTransformers) and self.requires_bitmap:
+                    if step.orient_changing and self.requires_bitmap:
                         bitmap_data = step.transform(self.bitmap_data )
 
                     if input_array is None:

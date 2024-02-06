@@ -22,12 +22,24 @@ class ByteScalingTransformer:
         - scaler (float, optional): The scaling factor. Default is 255.
         - verbose (bool, optional): If True, enable verbose logging. Default is False.
         - **kwargs: Additional keyword arguments.
+
+        Basic Example:
+        
+        # Create an instance of the transformer
+        transformer = ByteScalingTransformer()
+        # Load a sample magnetogram
+        magnetogram, magnetogram_header, bitmap = load_fits_data()
+        # Transform the magnetogram
+        transformed_magnetogram = transformer.transform(magnetogram, scale=255, rgb=True)
+
         """
         self.min_value = min_value
         self.max_value = max_value
         self.scaler = scaler
         self.verbose = verbose
         self.logger = VerboseLogger(verbose=self.verbose)
+        self.requires_bitmap = False
+        self.orient_changing = False
         self.kwargs = kwargs
 
     def _bytscal_with_nan(self, input_array, min_value, max_value):

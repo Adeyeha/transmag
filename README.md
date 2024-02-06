@@ -75,8 +75,7 @@ If you use TransMag in a scientific publication, please consider citing our work
 
 ## Acknowledgment
 
-This work was supported in part by NASA Grant Award No. NNH14ZDA001N, NASA/SRAG Direct Contract and two NSF Grant
-Awards: No. AC1443061 and AC1931555.
+This work was supported by NSF Grant Award 2104004.
 
 ***
 
